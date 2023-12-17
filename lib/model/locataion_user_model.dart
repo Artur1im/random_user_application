@@ -9,12 +9,11 @@ class LocationUserModel {
       this.location, this.city, this.state, this.country, this.postcode);
 
   LocationUserModel.fromJson(Map<String, dynamic> data)
-      : location =
-            '${data['location']['street']['number']} ${data['location']['street']['name']}',
-        city = '${data['location']['city']}',
-        state = '${data['location']['state']}',
-        country = '${data['location']['country']}',
-        postcode = data['location']['postcode'];
+      : location = '${data['street']['number']} ${data['street']['name']}',
+        city = data['city'],
+        state = data['state'],
+        country = data['country'],
+        postcode = data['postcode'];
 
   static List<LocationUserModel> fromJsonToList(Map<String, dynamic> data) {
     List<LocationUserModel> response = [];

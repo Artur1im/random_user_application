@@ -15,9 +15,9 @@ class RandomUser {
       : gender = data['gender'],
         email = data['email'],
         phone = data['phone'],
-        picture = '${data['picture']['large']}',
+        picture = data['picture'],
         name =
-            '${data['name']['first']} ${data['name']['last']} ${data['name']['title']}',
+            '${data['name']['title']} ${data['name']['last']} ${data['name']['first']}',
         location = LocationUserModel.fromJson(
           data['location'],
         );
