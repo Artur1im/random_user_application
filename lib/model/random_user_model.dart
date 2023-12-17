@@ -1,22 +1,26 @@
 import 'package:random_user_application/model/locataion_user_model.dart';
 
 class RandomUser {
-  int id;
-  String name;
-  String status;
-  String image;
   String gender;
-  String species;
+  String name;
+  double email;
   LocationUserModel location;
+  int phone;
+  String picture;
+
+  RandomUser(this.gender, this.name, this.location, this.email, this.phone,
+      this.picture);
 
   RandomUser.fromJson(Map<String, dynamic> data)
-      : id = data['id'],
-        name = '${data['name']['first']} ${data['name']['last']}',
-        status = data['status'],
-        image = data['image'],
-        species = data['species'],
-        gender = data['gender'],
-        location = LocationUserModel.fromJson(data['location']);
+      : gender = data['gender'],
+        email = data['email'],
+        phone = data['phone'],
+        picture = '${data['picture']['large']}',
+        name =
+            '${data['name']['first']} ${data['name']['last']} ${data['name']['title']}',
+        location = LocationUserModel.fromJson(
+          data['location'],
+        );
 
   static List<RandomUser> fromJsonToList(Map<String, dynamic> data) {
     List<RandomUser> response = [];

@@ -1,21 +1,20 @@
 class LocationUserModel {
-  int id;
-  String name;
-  String status;
-  String image;
-  String gender;
-  String species;
+  String location;
+  String city;
+  String state;
+  String country;
+  int postcode;
 
   LocationUserModel(
-      this.id, this.name, this.status, this.image, this.gender, this.species);
+      this.location, this.city, this.state, this.country, this.postcode);
 
   LocationUserModel.fromJson(Map<String, dynamic> data)
-      : id = data['id'],
-        name = '${data['name']['first']} ${data['name']['last']}',
-        status = data['status'],
-        image = data['image'],
-        species = data['species'],
-        gender = data['gender'];
+      : location =
+            '${data['location']['street']['number']} ${data['location']['street']['name']}',
+        city = '${data['location']['city']}',
+        state = '${data['location']['state']}',
+        country = '${data['location']['country']}',
+        postcode = data['location']['postcode'];
 
   static List<LocationUserModel> fromJsonToList(Map<String, dynamic> data) {
     List<LocationUserModel> response = [];
