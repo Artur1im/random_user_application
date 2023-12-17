@@ -1,6 +1,16 @@
 part of 'random_user_bloc.dart';
 
-@immutable
 sealed class RandomUserState {}
 
-final class RandomUserInitial extends RandomUserState {}
+class RandomUsersFetchingListInitial extends RandomUserState {}
+
+class RandomUsersFetchingLoadingState extends RandomUserState {}
+
+class RandomUsersFetchingErrorState extends RandomUserState {}
+
+class RandomUsersFetchingSuccessfulState extends RandomUserState {
+  final List<RandomUser> randomUsers;
+  RandomUsersFetchingSuccessfulState({
+    required this.randomUsers,
+  });
+}

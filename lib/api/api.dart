@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:random_user_application/api/api_error.dart';
-// import 'package:rick_and_morty_app/model/api_error.dart';
 
 class Api {
   // ignore: constant_identifier_names
@@ -12,8 +11,8 @@ class Api {
     'Accept': 'application/json',
   };
 
-  Future<dynamic> get(String method, {Map<String, dynamic>? params}) async {
-    Uri url = Uri.https(ENDPOINT, method, params);
+  Future<dynamic> get(String path, {Map<String, dynamic>? params}) async {
+    Uri url = Uri.https(ENDPOINT, path, params);
     http.Response response = await http.get(url, headers: _headers);
     Map<String, dynamic> content = jsonDecode(response.body);
     if (response.statusCode != 200) {
@@ -22,8 +21,8 @@ class Api {
     return content;
   }
 
-  Future<dynamic> post(String method, {Map<String, dynamic>? params}) async {
-    Uri url = Uri.https(ENDPOINT, method);
+  Future<dynamic> post(String path, {Map<String, dynamic>? params}) async {
+    Uri url = Uri.https(ENDPOINT, path);
     http.Response response =
         await http.post(url, body: params, headers: _headers);
     Map<String, dynamic> content = jsonDecode(response.body);
