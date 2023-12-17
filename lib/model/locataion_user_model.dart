@@ -1,15 +1,15 @@
 class LocationUserModel {
-  String location;
+  String street;
   String city;
   String state;
   String country;
   int postcode;
 
   LocationUserModel(
-      this.location, this.city, this.state, this.country, this.postcode);
+      this.street, this.city, this.state, this.country, this.postcode);
 
   LocationUserModel.fromJson(Map<String, dynamic> data)
-      : location = '${data['street']['number']} ${data['street']['name']}',
+      : street = data['street'],
         city = data['city'],
         state = data['state'],
         country = data['country'],
