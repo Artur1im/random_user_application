@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:random_user_application/bloc/random_user_bloc.dart';
@@ -47,12 +45,11 @@ class _RandomUserPageState extends State<RandomUserPage> {
                         itemCount: randomUserListBloc.randomUsers.length,
                         itemBuilder: (context, index) {
                           final user = state.randomUsers[index];
-                          return CustomCard(
+                          return CardWidget(
                             name: user.name,
                             img: user.picture,
                             phone: user.phone,
-                            gender: user.gender,
-                            species: user.email,
+                            place: user.location.city,
                           );
                         },
                       ));
