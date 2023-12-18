@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:random_user_application/api/random_user_api.dart';
@@ -10,8 +11,7 @@ part 'random_user_event.dart';
 class RandomUserListBloc extends Bloc<RandomUserEvent, RandomUserState> {
   List<RandomUser> randomUsers = [];
 
-  RandomUserListBloc()
-      : super(RandomUsersFetchingListInitial as RandomUserState) {
+  RandomUserListBloc() : super(RandomUsersFetchingListInitial()) {
     on<RandomUserFetchListInitial>(randomUserInitialFetchEvent);
     on<RandomUserLoadMore>(randomUserLoadMore);
   }
@@ -36,13 +36,13 @@ class RandomUserListBloc extends Bloc<RandomUserEvent, RandomUserState> {
   FutureOr<void> _requestAndAddRandomUser() async {
     randomUsers.clear();
 
-    List<RandomUser> list = await RandomUserApi().randomUsers(count: 5);
+    List<RandomUser> list = await RandomUserApi().randomUsers(count: 100);
 
     randomUsers.addAll(list);
   }
 
   FutureOr<void> _requestFetchMore() async {
-    List<RandomUser> list = await RandomUserApi().randomUsers(count: 5);
+    List<RandomUser> list = await RandomUserApi().randomUsers(count: 100);
 
     randomUsers.addAll(list);
   }

@@ -3,9 +3,9 @@ import 'package:random_user_application/model/locataion_user_model.dart';
 class RandomUser {
   String gender;
   String name;
-  double email;
+  String email;
   LocationUserModel location;
-  int phone;
+  String phone;
   String picture;
 
   RandomUser(this.gender, this.name, this.location, this.email, this.phone,
@@ -15,12 +15,10 @@ class RandomUser {
       : gender = data['gender'],
         email = data['email'],
         phone = data['phone'],
-        picture = data['picture'],
+        picture = data['picture']['medium'],
         name =
             '${data['name']['title']} ${data['name']['last']} ${data['name']['first']}',
-        location = LocationUserModel.fromJson(
-          data['location'],
-        );
+        location = LocationUserModel.fromJson(data['location']);
 
   static List<RandomUser> fromJsonToList(Map<String, dynamic> data) {
     List<RandomUser> response = [];
