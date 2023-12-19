@@ -12,5 +12,3 @@ class LocationUserModel {
         country = data['country'],
         postcode = data['postcode'].toString();
 }
-
-// удалить самообнавление

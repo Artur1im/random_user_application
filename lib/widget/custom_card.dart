@@ -43,8 +43,12 @@ class CardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          // При нажатии на карточку, вызовите метод для перехода на новую страницу
-          _navigateToDetailsPage(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Person(),
+            ),
+          );
         },
         child: Card(
             child: SizedBox(
@@ -94,18 +98,18 @@ class CardWidget extends StatelessWidget {
           ),
         )));
   }
-
-  void _navigateToDetailsPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => Person(
-          name: name,
-          img: img,
-          phone: phone,
-          place: place,
-        ),
-      ),
-    );
-  }
 }
+//   void _navigateToDetailsPage(BuildContext context) {
+//     Navigator.push(
+//       context,
+//       MaterialPageRoute(
+//         builder: (context) => Person(
+//           name: name,
+//           img: img,
+//           phone: phone,
+//           place: place,
+//         ),
+//       ),
+//     );
+//   }
+// }

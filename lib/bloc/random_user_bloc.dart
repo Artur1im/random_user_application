@@ -33,7 +33,7 @@ class RandomUserListBloc extends Bloc<RandomUserEvent, RandomUserState> {
   }
 
   FutureOr<void> _requestAndAddRandomUser() async {
-    randomUsers.clear();
+    randomUsers.clear;
 
     List<RandomUser> list = await RandomUserApi().randomUsers(count: 100);
 

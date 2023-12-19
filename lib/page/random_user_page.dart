@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:random_user_application/bloc/random_user_bloc.dart';
+import 'package:random_user_application/page/person.dart';
 import 'package:random_user_application/widget/custom_card.dart';
 
 class RandomUserPage extends StatefulWidget {
@@ -51,6 +52,16 @@ class _RandomUserPageState extends State<RandomUserPage> {
                             phone: user.phone,
                             place: user.location.city,
                           );
+                          // return ListTile(
+                          //     title: Text(state.randomUsers[index].name),
+                          //     onTap: () =>
+                          //         Navigator.of(context).push(MaterialPageRoute(
+                          //             builder: (context) => Person(
+                          //                   name: user.name,
+                          //                   img: user.email,
+                          //                   phone: user.phone,
+                          //                   place: user.location.city,
+                          //                 ))));
                         },
                       ));
                 } else {
