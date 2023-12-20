@@ -1,43 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:random_user_application/page/person.dart';
 
-// class CustomCard extends StatelessWidget {
-//   final String name;
-//   final String img;
-//   final String phone;
-//   final String place;
-
-//   const CustomCard({
-//     super.key,
-//     required this.name,
-//     required this.img,
-//     required this.phone,
-//     required this.place,
-//   });
-//   @override
-//   Widget build(BuildContext context) {
-//     //   return InkWell(
-//     //     onTap
-//     //   );
-//     // }
-
-//     return
-//   }
-// }
-
 class CardWidget extends StatelessWidget {
   final String name;
   final String img;
   final String phone;
   final String place;
+  final String location;
+  final String gender;
+  final String picture;
 
-  const CardWidget({
-    super.key,
-    required this.name,
-    required this.img,
-    required this.phone,
-    required this.place,
-  });
+  const CardWidget(
+      {super.key,
+      required this.name,
+      required this.img,
+      required this.phone,
+      required this.place,
+      required this.location,
+      required this.gender,
+      required this.picture});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +27,15 @@ class CardWidget extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Person(),
+              builder: (context) => SecondPage(
+                name: name,
+                img: img,
+                phone: phone,
+                place: place,
+                location: location,
+                gender: gender,
+                picture: picture,
+              ),
             ),
           );
         },
@@ -99,17 +88,25 @@ class CardWidget extends StatelessWidget {
         )));
   }
 }
-//   void _navigateToDetailsPage(BuildContext context) {
-//     Navigator.push(
-//       context,
-//       MaterialPageRoute(
-//         builder: (context) => Person(
-//           name: name,
-//           img: img,
-//           phone: phone,
-//           place: place,
-//         ),
-//       ),
-//     );
-//   }
-// }
+
+class UserText extends StatelessWidget {
+  final String titleOne;
+  final String titleTwo;
+
+  const UserText(this.titleOne, this.titleTwo, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          titleOne,
+          style: TextStyle(fontSize: 20),
+        ),
+        Text(
+          titleTwo,
+        )
+      ],
+    );
+  }
+}

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:random_user_application/bloc/random_user_bloc.dart';
-import 'package:random_user_application/page/person.dart';
 import 'package:random_user_application/widget/custom_card.dart';
 
 class RandomUserPage extends StatefulWidget {
@@ -51,17 +50,10 @@ class _RandomUserPageState extends State<RandomUserPage> {
                             img: user.picture,
                             phone: user.phone,
                             place: user.location.city,
+                            location: user.location.street,
+                            gender: user.gender,
+                            picture: user.picture,
                           );
-                          // return ListTile(
-                          //     title: Text(state.randomUsers[index].name),
-                          //     onTap: () =>
-                          //         Navigator.of(context).push(MaterialPageRoute(
-                          //             builder: (context) => Person(
-                          //                   name: user.name,
-                          //                   img: user.email,
-                          //                   phone: user.phone,
-                          //                   place: user.location.city,
-                          //                 ))));
                         },
                       ));
                 } else {
@@ -75,25 +67,3 @@ class _RandomUserPageState extends State<RandomUserPage> {
         ));
   }
 }
-
-// return SizedBox(
-//     height: MediaQuery.of(context).size.height,
-//     width: MediaQuery.of(context).size.width,
-//     child: Column(
-//       children: [
-//         Card(
-//           clipBehavior: Clip.hardEdge,
-//           child: InkWell(
-//             splashColor: Colors.blue.withAlpha(30),
-//             onTap: () {
-//               debugPrint('Card tapped.');
-//             },
-//             child: const SizedBox(
-//               width: 300,
-//               height: 100,
-//               child: Text('A card that can be tapped'),
-//             ),
-//           ),
-//         ),
-//       ],
-//     ));

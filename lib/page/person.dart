@@ -1,69 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:random_user_application/bloc/random_user_bloc.dart';
 import 'package:random_user_application/widget/custom_card.dart';
 
-class Person extends StatefulWidget {
-  const Person({super.key});
+class SecondPage extends StatelessWidget {
+  final String name;
+  final String img;
+  final String phone;
+  final String place;
+  final String location;
+  final String gender;
+  final String picture;
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _PersonState createState() => _PersonState();
-}
-
-@override
-State<Person> createState() => _PersonState();
-final RandomUserListBloc randomUserListBloc = RandomUserListBloc();
-
-class _PersonState extends State<Person> {
-  final RandomUserListBloc randomUserListBloc = RandomUserListBloc();
-
-  @override
-  void initState() {
-    randomUserListBloc.add(RandomUserFetchListInitial());
-    super.initState();
-  }
+  const SecondPage({
+    super.key,
+    required this.name,
+    required this.img,
+    required this.phone,
+    required this.place,
+    required this.location,
+    required this.gender,
+    required this.picture,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Вторая страница'),
+      ),
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: SingleChildScrollView(
-          child: BlocBuilder<RandomUserListBloc, RandomUserState>(
-            bloc: randomUserListBloc,
-            builder: (context, state) {
-              if (state is RandomUsersFetchingLoadingState) {
-                return const Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
-                  ),
-                );
-              } else if (state is RandomUsersFetchingSuccessfulState) {
-                return SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    child: ListView.builder(
-                      itemCount: randomUserListBloc.randomUsers.length,
-                      itemBuilder: (context, index) {
-                        final user = state.randomUsers[index];
-                        return CardWidget(
-                          name: user.name,
-                          img: user.picture,
-                          phone: user.phone,
-                          place: user.location.city,
-                        );
-                      },
-                    ));
-              } else {
-                return const Center(
-                  child: Text("NOTHING"),
-                );
-              }
-            },
-          ),
+        child: Column(
+          children: [
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(flex: 2, child: Image.network(img, fit: BoxFit.fill)),
+                Expanded(
+                    flex: 3,
+                    child: Column(
+                      children: [
+                        UserText('Name:', name),
+                        UserText('Location:', location),
+                        UserText('Gender:', gender),
+                        UserText('Phone:', phone),
+                      ],
+                    ))
+              ],
+            ),
+          ],
         ),
       ),
     );

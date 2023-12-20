@@ -24,6 +24,16 @@ class RandomUserListBloc extends Bloc<RandomUserEvent, RandomUserState> {
     emit(RandomUsersFetchingSuccessfulState(randomUsers: randomUsers));
   }
 
+  // FutureOr<void> userId(
+  //   RandomUserLoadMore event,
+  //   Emitter<RandomUserState> emit,
+  // ) async {
+  //   emit(RandomUsersFetchingLoadingState());
+  //   await Future.delayed(const Duration(seconds: 2));
+  //   final users = List.generate(event.count, (index) => UserId(id: index));
+  //   emit(RandomUserIdState(users));
+  // }
+
   FutureOr<void> randomUserLoadMore(
     RandomUserLoadMore event,
     Emitter<RandomUserState> emit,
