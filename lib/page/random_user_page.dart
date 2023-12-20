@@ -47,12 +47,12 @@ class _RandomUserPageState extends State<RandomUserPage> {
                           final user = state.randomUsers[index];
                           return CardWidget(
                             name: user.name,
-                            img: user.picture,
+                            picture: user.picture,
                             phone: user.phone,
                             place: user.location.city,
                             location: user.location.street,
                             gender: user.gender,
-                            picture: user.picture,
+                            age: user.age,
                           );
                         },
                       ));

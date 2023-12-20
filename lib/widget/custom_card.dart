@@ -3,22 +3,22 @@ import 'package:random_user_application/page/person.dart';
 
 class CardWidget extends StatelessWidget {
   final String name;
-  final String img;
   final String phone;
   final String place;
   final String location;
   final String gender;
   final String picture;
+  final int age;
 
   const CardWidget(
       {super.key,
       required this.name,
-      required this.img,
       required this.phone,
       required this.place,
       required this.location,
       required this.gender,
-      required this.picture});
+      required this.picture,
+      required this.age});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,12 @@ class CardWidget extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => SecondPage(
                 name: name,
-                img: img,
+                picture: picture,
                 phone: phone,
                 place: place,
                 location: location,
                 gender: gender,
-                picture: picture,
+                age: age,
               ),
             ),
           );
@@ -60,7 +60,9 @@ class CardWidget extends StatelessWidget {
                       ],
                     ),
                     child: SizedBox(
-                        height: 100, width: 100, child: Image.network(img))),
+                        height: 100,
+                        width: 100,
+                        child: Image.network(picture))),
                 Expanded(
                   child: Container(
                     height: 150,
