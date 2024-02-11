@@ -1,16 +1,18 @@
-# random_user_application
+# Project "Random User Application"
 
-A new Flutter project.
+## Description
+This project generates random people with unique names, phone numbers and email addresses. Users can use the app to create test data or just for fun.
 
-## Getting Started
+## Functionality
+- Generate random people with unique names, phone numbers and email addresses.
+- View generated data about people.
+- Ability to update the list of random people.
+- Integration with REST API for data exchange with the server.
+- Implementation of the BLoC (Business Logic Component) pattern to manage the application state.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies
+The project uses the following technologies:
+- Flutter for developing a cross-platform mobile application.
+- Generate random data using the API.
+- REST API for exchanging data with the server.
+- Block library (BLoC) for managing application state.
